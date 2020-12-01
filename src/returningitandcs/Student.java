@@ -37,7 +37,7 @@ public class Student {
         return this.enrollYear;
     }
     
-    public String getSem() {
+    public int getSem() {
         return this.enrollSem;
     }
     

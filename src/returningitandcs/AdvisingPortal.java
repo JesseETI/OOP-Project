@@ -11,18 +11,18 @@ import javax.swing.JPanel;
  *
  * @author sandman
  */
-public class GUI extends javax.swing.JFrame {
+public class AdvisingPortal extends javax.swing.JFrame {
     
     AdvisingSystem advisingSystem;
 
     /**
      * Creates new form GUI
      */
-    public GUI() {
+    public AdvisingPortal() {
         initComponents();
     }
     
-    public GUI(AdvisingSystem as) {
+    public AdvisingPortal(AdvisingSystem as) {
         initComponents();
         advisingSystem = as;
     } 
@@ -1104,38 +1104,35 @@ public class GUI extends javax.swing.JFrame {
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         // TODO add your handling code here:
-        String degreeOpt;
-        int yearOpt, semOpt;
+        String degreeOpt = "";
+        int yearOpt = 0, semOpt = 0;
+        
         
         if (CSButton.isSelected()) {
             degreeOpt = CSButton.getActionCommand();
         }
-        else {
+        
+        else if (ITButton.isSelected()){
             degreeOpt = ITButton.getActionCommand();
         }
         
         if (Y2Button.isSelected()) {
             yearOpt = Integer.parseInt(Y2Button.getActionCommand());
         }
-        else {
+        else if (Y3Button.isSelected()){
             yearOpt = Integer.parseInt(Y3Button.getActionCommand());
         }
         
         if (Sem1Button.isSelected()) {
             semOpt = Integer.parseInt(Sem1Button.getActionCommand());
         }
-        else {
+        else if (Sem2Button.isSelected()) {
             semOpt = Integer.parseInt(Sem2Button.getActionCommand());
         }
         
-        if (!degreeOpt.equals(null) && yearOpt != 0 && semOpt != 0) {
-            boolean studentCreated = advisingSystem.createStudent(degreeOpt, yearOpt, semOpt);
-            if (studentCreated) {
-                switchPanels(Year1Panel);
-            }
-            else {
-                welcomeLabel.setText("Student was not created.");
-            }
+        if (!degreeOpt.equals("") && yearOpt != 0 && semOpt != 0) {
+            advisingSystem.createStudent(degreeOpt,yearOpt, semOpt);
+            switchPanels(Year1Panel);
         }
         else {
             welcomeLabel.setText("Please fill out all fields.");
@@ -1160,20 +1157,21 @@ public class GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdvisingPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdvisingPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdvisingPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdvisingPortal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI().setVisible(true);
+                new AdvisingPortal().setVisible(true);
             }
         });
     }
