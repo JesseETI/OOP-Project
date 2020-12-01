@@ -4,7 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/sandman/NetBeansProjects/ReturningITAndCS/src/returningitandcs/ReturningITAndCS.java</file>
+            <file>file:/Users/sandman/NetBeansProjects/ReturningITAndCS/src/returningitandcs/iterator/CIterator.java</file>
+            <file>file:/Users/sandman/NetBeansProjects/ReturningITAndCS/src/returningitandcs/Composite/Course.java</file>
+            <file>file:/Users/sandman/NetBeansProjects/ReturningITAndCS/src/returningitandcs/iterator/CourseCollection.java</file>
             <file>file:/Users/sandman/NetBeansProjects/ReturningITAndCS/src/returningitandcs/GUI.java</file>
+            <file>file:/Users/sandman/NetBeansProjects/ReturningITAndCS/src/returningitandcs/Composite/BasicCourse.java</file>
+            <file>file:/Users/sandman/NetBeansProjects/ReturningITAndCS/src/returningitandcs/Composite/AdvancedCourse.java</file>
+            <file>file:/Users/sandman/NetBeansProjects/ReturningITAndCS/src/returningitandcs/Database.java</file>
         </group>
     </open-files>
 </project-private>
