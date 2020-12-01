@@ -100,43 +100,43 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="EnrollmentYearLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="EnrollmentSemLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Y2Button" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Sem1Button" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="welcomeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="majorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="112" max="32767" attributes="0"/>
-                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CSButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="337" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ITButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Y3Button" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="jRadioButton7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Sem2Button" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="285" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="nextBtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -145,87 +145,90 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="welcomeLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="majorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="CSButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ITButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="EnrollmentYearLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Y2Button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Y3Button" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="EnrollmentSemLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Sem1Button" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="Sem2Button" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="nextBtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="537" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="welcomeLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Welcome"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                <Component class="javax.swing.JRadioButton" name="CSButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Computer Science"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CSButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel2">
+                <Component class="javax.swing.JLabel" name="majorLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Select Your Major"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+                <Component class="javax.swing.JRadioButton" name="ITButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Information Technology"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel3">
+                <Component class="javax.swing.JLabel" name="EnrollmentYearLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Select Enrollment Year"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+                <Component class="javax.swing.JRadioButton" name="Y2Button">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="2"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Y2ButtonActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton6">
+                <Component class="javax.swing.JRadioButton" name="Y3Button">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4">
+                <Component class="javax.swing.JLabel" name="EnrollmentSemLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Select Enrollment Semester"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+                <Component class="javax.swing.JRadioButton" name="Sem1Button">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton7">
+                <Component class="javax.swing.JRadioButton" name="Sem2Button">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton1">
+                <Component class="javax.swing.JButton" name="nextBtn">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Next Page"/>
                   </Properties>

@@ -31,17 +31,17 @@ public class GUI extends javax.swing.JFrame {
         portalTitle = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jLabel3 = new javax.swing.JLabel();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jLabel4 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        welcomeLabel = new javax.swing.JLabel();
+        CSButton = new javax.swing.JRadioButton();
+        majorLabel = new javax.swing.JLabel();
+        ITButton = new javax.swing.JRadioButton();
+        EnrollmentYearLabel = new javax.swing.JLabel();
+        Y2Button = new javax.swing.JRadioButton();
+        Y3Button = new javax.swing.JRadioButton();
+        EnrollmentSemLabel = new javax.swing.JLabel();
+        Sem1Button = new javax.swing.JRadioButton();
+        Sem2Button = new javax.swing.JRadioButton();
+        nextBtn = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -181,32 +181,37 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
 
-        jLabel1.setText("Welcome");
+        welcomeLabel.setText("Welcome");
 
-        jRadioButton2.setText("Computer Science");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        CSButton.setText("Computer Science");
+        CSButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                CSButtonActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Select Your Major");
+        majorLabel.setText("Select Your Major");
 
-        jRadioButton3.setText("Information Technology");
+        ITButton.setText("Information Technology");
 
-        jLabel3.setText("Select Enrollment Year");
+        EnrollmentYearLabel.setText("Select Enrollment Year");
 
-        jRadioButton5.setText("2");
+        Y2Button.setText("2");
+        Y2Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Y2ButtonActionPerformed(evt);
+            }
+        });
 
-        jRadioButton6.setText("3");
+        Y3Button.setText("3");
 
-        jLabel4.setText("Select Enrollment Semester");
+        EnrollmentSemLabel.setText("Select Enrollment Semester");
 
-        jRadioButton4.setText("1");
+        Sem1Button.setText("1");
 
-        jRadioButton7.setText("2");
+        Sem2Button.setText("2");
 
-        jButton1.setText("Next Page");
+        nextBtn.setText("Next Page");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -217,56 +222,56 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
+                            .addComponent(EnrollmentYearLabel)
+                            .addComponent(EnrollmentSemLabel))
                         .addGap(51, 51, 51)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton4)))
+                            .addComponent(Y2Button)
+                            .addComponent(Sem1Button)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
+                            .addComponent(welcomeLabel)
+                            .addComponent(majorLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                        .addComponent(jRadioButton2)))
+                        .addComponent(CSButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jRadioButton3)
+                        .addComponent(ITButton)
                         .addGap(66, 66, 66))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jRadioButton6)
+                        .addComponent(Y3Button)
                         .addGap(209, 209, 209))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jRadioButton7)
+                        .addComponent(Sem2Button)
                         .addContainerGap())))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(285, 285, 285)
-                .addComponent(jButton1)
+                .addComponent(nextBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(jLabel1)
+                .addComponent(welcomeLabel)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(majorLabel)
+                    .addComponent(CSButton)
+                    .addComponent(ITButton))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6))
+                    .addComponent(EnrollmentYearLabel)
+                    .addComponent(Y2Button)
+                    .addComponent(Y3Button))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton7))
+                    .addComponent(EnrollmentSemLabel)
+                    .addComponent(Sem1Button)
+                    .addComponent(Sem2Button))
                 .addGap(55, 55, 55)
-                .addComponent(jButton1)
+                .addComponent(nextBtn)
                 .addContainerGap(537, Short.MAX_VALUE))
         );
 
@@ -1163,9 +1168,13 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void CSButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CSButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_CSButtonActionPerformed
+
+    private void Y2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Y2ButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Y2ButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1203,7 +1212,14 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JRadioButton CSButton;
+    private javax.swing.JLabel EnrollmentSemLabel;
+    private javax.swing.JLabel EnrollmentYearLabel;
+    private javax.swing.JRadioButton ITButton;
+    private javax.swing.JRadioButton Sem1Button;
+    private javax.swing.JRadioButton Sem2Button;
+    private javax.swing.JRadioButton Y2Button;
+    private javax.swing.JRadioButton Y3Button;
     private javax.swing.JComboBox<String> jComboBox16;
     private javax.swing.JComboBox<String> jComboBox17;
     private javax.swing.JComboBox<String> jComboBox18;
@@ -1249,12 +1265,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox58;
     private javax.swing.JComboBox<String> jComboBox59;
     private javax.swing.JComboBox<String> jComboBox60;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -1265,7 +1279,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -1276,7 +1289,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -1295,12 +1307,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
@@ -1347,6 +1353,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField58;
     private javax.swing.JTextField jTextField59;
     private javax.swing.JTextField jTextField60;
+    private javax.swing.JLabel majorLabel;
+    private javax.swing.JButton nextBtn;
     private javax.swing.JLabel portalTitle;
+    private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 }
