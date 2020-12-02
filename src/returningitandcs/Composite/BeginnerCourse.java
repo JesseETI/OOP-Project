@@ -9,12 +9,12 @@ package returningitandcs.Composite;
  *
  * @author sandman
  */
-public class AdvancedCourse implements Course{
+public class BeginnerCourse implements Course{
     
     private String code, title, type;
     private int credit, year, semester;
     
-    public AdvancedCourse(String code, String title, String type, int credit, int year, int semester) {
+    public BeginnerCourse(String code, String title, String type, int credit, int year, int semester) {
         this.code = code;
         this.title = title;
         this.type = type;
@@ -24,6 +24,11 @@ public class AdvancedCourse implements Course{
     }
     
     public boolean requirementsMet() {
+       //if gpa too low 
        return true;
     }
+    
+    
+    
+    
 }

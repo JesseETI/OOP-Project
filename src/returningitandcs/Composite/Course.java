@@ -10,5 +10,5 @@ package returningitandcs.Composite;
  * @author sandman
  */
 public interface Course {
-    public boolean accessCourse();
+    public boolean requirementsMet();
 }

@@ -96,6 +96,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
         y1s3g4 = new javax.swing.JTextField();
         y1s3c5 = new javax.swing.JComboBox<>();
         y1s3g5 = new javax.swing.JTextField();
+        Y1Btn = new javax.swing.JButton();
         Year2Panel = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -289,7 +290,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
         Sem1Title.setText("Semester I");
 
-        y1help.setText("Please select the courses you passed & the consecutive mark you received");
+        y1help.setText("Please select the courses you passed & the consecutive mark you received.");
 
         y1s1c1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -367,6 +368,13 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
         y1s3g5.setText("jTextField1");
 
+        Y1Btn.setText("Year 2 Options");
+        Y1Btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Y1BtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Year1PanelLayout = new javax.swing.GroupLayout(Year1Panel);
         Year1Panel.setLayout(Year1PanelLayout);
         Year1PanelLayout.setHorizontalGroup(
@@ -416,34 +424,33 @@ public class AdvisingPortal extends javax.swing.JFrame {
                                             .addComponent(y1s2g3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(y1s2g4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGroup(Year1PanelLayout.createSequentialGroup()
-                                    .addGap(0, 6, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
                                     .addGroup(Year1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(y1s3c1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(y1s3c2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(y1s3c3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(y1s3c4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(Year1PanelLayout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(Year1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(y1s3c1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(y1s3c2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(y1s3c3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(y1s3c4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(Year1PanelLayout.createSequentialGroup()
-                                                    .addGap(6, 6, 6)
-                                                    .addComponent(jLabel25))
-                                                .addComponent(y1s3c5, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(69, 69, 69)
-                                            .addGroup(Year1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(y1s3g5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel26)
-                                                .addComponent(y1s3g1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(y1s3g2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(y1s3g3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(y1s3g4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(jLabel24))))
-                            .addGap(254, 254, 254))
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jLabel25))
+                                        .addComponent(y1s3c5, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(69, 69, 69)
+                                    .addGroup(Year1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(y1s3g5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel26)
+                                        .addComponent(y1s3g1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(y1s3g2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(y1s3g3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(y1s3g4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(125, 125, 125)
+                            .addComponent(Y1Btn)
+                            .addGap(32, 32, 32))
                         .addGroup(Year1PanelLayout.createSequentialGroup()
                             .addGap(6, 6, 6)
                             .addGroup(Year1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel23)
-                                .addComponent(Sem1Title))
+                                .addComponent(Sem1Title)
+                                .addComponent(jLabel24))
                             .addGap(0, 0, Short.MAX_VALUE)))))
             .addGroup(Year1PanelLayout.createSequentialGroup()
                 .addGap(286, 286, 286)
@@ -519,9 +526,9 @@ public class AdvisingPortal extends javax.swing.JFrame {
                 .addGroup(Year1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(y1s2c5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(y1s2g5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(jLabel24)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Year1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Year1PanelLayout.createSequentialGroup()
                         .addComponent(jLabel25)
@@ -549,8 +556,10 @@ public class AdvisingPortal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Year1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(y1s3c5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(y1s3g5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                    .addGroup(Year1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(y1s3g5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Y1Btn)))
+                .addGap(22, 22, 22))
         );
 
         innerPanel.add(Year1Panel, "card3");
@@ -1138,7 +1147,13 @@ public class AdvisingPortal extends javax.swing.JFrame {
             welcomeLabel.setText("Please fill out all fields.");
         }
         
+        
     }//GEN-LAST:event_nextBtnActionPerformed
+
+    private void Y1BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Y1BtnActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Y1BtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1196,6 +1211,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
     private javax.swing.JRadioButton Sem1Button;
     private javax.swing.JLabel Sem1Title;
     private javax.swing.JRadioButton Sem2Button;
+    private javax.swing.JButton Y1Btn;
     private javax.swing.JLabel Y1Title;
     private javax.swing.JRadioButton Y2Button;
     private javax.swing.JRadioButton Y3Button;

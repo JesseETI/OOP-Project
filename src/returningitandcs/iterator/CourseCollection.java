@@ -1,12 +1,15 @@
 
 package returningitandcs.iterator;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import returningitandcs.Composite.Course;
+import returningitandcs.Composite.StudentManager;
+
 
 
 public class CourseCollection implements CContainer{
-    private HashMap<String, String> courses = new HashMap<String, String>();
-    
+    private ArrayList<Course> course = new ArrayList<Course>();
+
     public CIterator createIterator() {
         CourseIterator newIter = new CourseIterator();
         return newIter;
@@ -17,12 +20,22 @@ public class CourseCollection implements CContainer{
         private int currPos;
         
         public boolean hasNext() {
-            return true;
+            if (currPos < course.size()) {
+                return true;
+            }
+            return false;
         }
         
-        public Object Next() {
-            return new Object();
+        public Course Next() {
+            if (this.hasNext()) {
+                return course.get(currPos++);
+            }
+            return null;
         }
         
+    }
+    
+    public void addCourse(Course c) {
+        course.add(c);
     }
 }
