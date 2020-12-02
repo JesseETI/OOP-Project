@@ -2,7 +2,7 @@
 package returningitandcs.iterator;
 
 import java.util.ArrayList;
-import returningitandcs.Composite.Course;
+import returningitandcs.Course;
 
 public class CourseCollection implements CContainer{
     private ArrayList<Course> course = new ArrayList<Course>();
@@ -23,7 +23,7 @@ public class CourseCollection implements CContainer{
             return false;
         }
         
-        public Course Next() {
+        public Course next() {
             if (this.hasNext()) {
                 return course.get(currPos++);
             }

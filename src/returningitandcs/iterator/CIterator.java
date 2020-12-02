@@ -5,10 +5,10 @@
  */
 package returningitandcs.iterator;
 
-import returningitandcs.Composite.Course;
+import returningitandcs.Course;
 
 
 public interface CIterator {
     public boolean hasNext();
-    public Course Next();
+    public Course next();
 }

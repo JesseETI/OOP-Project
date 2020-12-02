@@ -1,7 +1,8 @@
 package returningitandcs;
 import java.sql.*;
-import returningitandcs.Composite.*;
-import returningitandcs.iterator.*;
+import returningitandcs.Command.Command;
+import returningitandcs.Command.CreateDBCourseCommand;
+import returningitandcs.Command.RemoteControl;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,13 +15,16 @@ import returningitandcs.iterator.*;
  * @author sandman
  */
 public class Database {
-    static AdvisingSystem advisingSys;
+    public AdvisingSystem advisingSystem;
+    public RemoteControl systemControl;
+    Command createDBCourse;
     
-    public Database(AdvisingSystem as) {
-        advisingSys = as;
+    public Database(AdvisingSystem advisingSystem, RemoteControl systemControl) {
+        this.advisingSystem = advisingSystem;
+        this.systemControl = systemControl;
     }
     
-    public static void main(String[] args) throws SQLException {
+    public void readDB() {
 
         Connection myConn = null;
         Statement myStmt = null;
@@ -48,19 +52,16 @@ public class Database {
                 String code = myRs.getString("code");
                 String title = myRs.getString("title");
                 String type = myRs.getString("type");
-                String credit = myRs.getString("credit");
-                String year = myRs.getString("year");
-                String semester = myRs.getString("semester");
+                int credit = Integer.parseInt(myRs.getString("credit"));
+                int year = Integer.parseInt(myRs.getString("year"));
+                int semester = Integer.parseInt(myRs.getString("semester"));
                 String prerequisite = myRs.getString("prerequisite");
 
-                //Display values
-                System.out.print(", Code: " + code);
-                System.out.print(", title: " + title);
-                System.out.println(", type: " + type);
-                System.out.println(", credit: " + credit);
-                System.out.println(", year: " + year);
-                System.out.println(", semester: " + semester);
-                System.out.println(", prerequisite: " + prerequisite);
+               Course newCSCourse = new Course(code, title, type, credit, year, semester, prerequisite);
+               System.out.println(newCSCourse.toString());
+               Command createDBCourse = new CreateDBCourseCommand(advisingSystem, newCSCourse);
+               systemControl.setCommand(createDBCourse);
+               systemControl.pressButton();
                 
             }
             myRs.close();
@@ -81,42 +82,20 @@ public class Database {
                 int semester = Integer.parseInt(myRs.getString("semester"));
                 String prerequisite = myRs.getString("prerequisite");
                 
-                //BasicCourse
-                if (year == 1) {
-                    AdvancedCourse newCourse = new AdvancedCourse(code, title, type, credit, year, semester);
-                    advisingSys.addToCollection(newCourse);
-                    System.out.println("Basic course added");
-                }
-                else {
-                    //Advanced Course
-                    
-                    if (prerequisite.contains(",")) {
-                    
-                        String[] preqReqCourses = prerequisite.split(",");
-                        newCourse.setPreReqType("AND");
-                
-
-                        for (String preReqCourse : preqReqCourses) {
-                            sql = "SELECT id, code, title, type, credit, year, semester, prerequisite FROM `Information Technology` WHERE code = " + preReqCourse;
-                            ResultSet preReqRs = myStmt.executeQuery(sql);
-                            //Extract data from result set
-                        }
-                    }
-                    
-                }
-                
+               Course newITCourse = new Course(code, title, type, credit, year, semester, prerequisite);
+               System.out.println(newITCourse.toString());
+               Command createDBCourse = new CreateDBCourseCommand(advisingSystem, newITCourse);
+               systemControl.setCommand(createDBCourse);
+               systemControl.pressButton();
             }
             myRs.close();
             
         }
         catch(SQLException e){  
             //JDBC Errors
-            System.out.println("Error found: " + e);
+            System.out.println("SQL Error found: " + e);
        }
-        catch(Exception e){
-            //Handle errors for Class.forName
-            System.out.println("Error found: " + e);   
-       }
+
        finally {
             //finally block used to close resources
             try {

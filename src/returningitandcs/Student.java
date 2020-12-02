@@ -6,15 +6,17 @@ public class Student {
     
     private String major;
     private int enrollYear, enrollSem;
-    private HashMap<String, Integer> courses;
+    private HashMap<Course, Integer> completedCourses;
+    private Iterator studentCourseIterator;
     private double gpa;
     
-    public Student(String major, int enrollYear,int enrollSem) {
+    public Student(String major, int enrollYear,int enrollSem, double gpa) {
         this.major = major;
         this.enrollYear = enrollYear;
         this.enrollSem = enrollSem;
-        courses = new HashMap<String, Integer>();
-        courses.put("COMP3605", 90);
+        this.gpa = gpa;
+        completedCourses = new HashMap<Course, Integer>();
+        this.studentCourseIterator = completedCourses.entrySet().iterator();
     }
     
     public void setMajor(String major) {
@@ -41,14 +43,20 @@ public class Student {
         return this.enrollSem;
     }
     
-    private void calculateGPA() {
-        Iterator studentCourseIterator = courses.entrySet().iterator();
-        
-        while (studentCourseIterator.hasNext()) { 
-            HashMap.Entry mapElement = (HashMap.Entry) studentCourseIterator.next(); 
-            int grade = ((int) mapElement.getValue()); 
-            System.out.println(mapElement.getKey() + " : " + grade); 
-        } 
+    public double getGPA() {
+        return this.gpa;
+    }
+    
+    public void addCourse(Course c, int grade) {
+        completedCourses.put(c, grade);
+    }
+    
+    public HashMap<Course, Integer> getCourseList() {
+        return completedCourses;
+    }
+    
+    public Iterator getIterator() {
+        return studentCourseIterator;
     }
     
     /*

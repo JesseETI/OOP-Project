@@ -1,21 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package returningitandcs;
 
-/**
- *
- * @author sandman
- */
-public class ReturningITAndCS {
+import returningitandcs.Command.RemoteControl;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+
+public class ReturningITAndCS {
     
+    public static void main(String[] args) {
+       AdvisingSystem system = new AdvisingSystem();
+       RemoteControl systemControl = new RemoteControl();
+       Database db = new Database(system, systemControl);
+       db.readDB();
+       AdvisingPortal portal = new AdvisingPortal(system, systemControl);
+       portal.setVisible(true);
+    }
 }
