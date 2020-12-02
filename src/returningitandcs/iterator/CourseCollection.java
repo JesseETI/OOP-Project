@@ -3,9 +3,6 @@ package returningitandcs.iterator;
 
 import java.util.ArrayList;
 import returningitandcs.Composite.Course;
-import returningitandcs.Composite.StudentManager;
-
-
 
 public class CourseCollection implements CContainer{
     private ArrayList<Course> course = new ArrayList<Course>();

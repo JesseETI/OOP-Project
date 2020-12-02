@@ -23,7 +23,18 @@ public class AdvancedCourse implements Course{
         this.semester = semester;
     }
     
-    public boolean requirementsMet() {
-       return true;
+    public String toString() {
+        String res = "Code: " + code + " Title: " + title + " Type: " + type + " Credit: " + credit + " Year: " + year + "Semester: " + semester;
+        return res;
     }
+    
+    public int getCredits() {
+        return credit;
+    }
+    
+    public String getCode() {
+        return code;
+    }
+    
+
 }

@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package returningitandcs.Composite;
+package returningitandcs.iterator;
 
 /**
  *
  * @author sandman
  */
-public interface Course {
-    public String toString();
-    public int getCredits();
-    //assessLevel
-}
+
+//https://www.tutorialspoint.com/design_pattern/iterator_pattern.htm
+
+public interface CContainer {
+    public CIterator createIterator();
+} 

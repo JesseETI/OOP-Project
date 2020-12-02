@@ -21,14 +21,19 @@ public class BeginnerCourse implements Course{
         this.credit = credit;
         this.year = year;
         this.semester = semester;
+    }    
+    
+    public String toString() {
+        String res = "Code: " + code + " Title: " + title + " Type: " + type + " Credit: " + credit + " Year: " + year + "Semester: " + semester;
+        return res;
     }
     
-    public boolean requirementsMet() {
-       //if gpa too low 
-       return true;
+    public int getCredits() {
+        return credit;
     }
     
-    
-    
+    public String getCode() {
+        return code;
+    }
     
 }

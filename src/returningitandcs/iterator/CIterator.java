@@ -5,15 +5,10 @@
  */
 package returningitandcs.iterator;
 
-/**
- *
- * @author sandman
- */
-interface CIterator {
-    public boolean hasNext();
-    public Object Next();
-}
+import returningitandcs.Composite.Course;
 
-interface CContainer {
-    public CIterator createIterator();
-} 
+
+public interface CIterator {
+    public boolean hasNext();
+    public Course Next();
+}
