@@ -8,23 +8,37 @@ import returningitandcs.iterator.CourseCollection;
 
 
 public class AdvisingSystem {
-    CourseCollection dbCollection, suggestedCollection;
+    CourseCollection csDBCollection, itDBCollection, suggestedCollection;
     Student newStudent;
     
     public AdvisingSystem() {
-        dbCollection = new CourseCollection();
+        csDBCollection = new CourseCollection();
+        itDBCollection = new CourseCollection();
     }
     
     public void createStudent(String major, int year, int sem, double gpa) {
         newStudent = new Student(major, year, sem, gpa);
     }
     
-    public void addCompletedStudentCourses(Course c, int grade) {
-        newStudent.addCourse(c, grade);
+    public void addCompletedStudentCourses(String courseCode, int grade) {
+        CIterator iterator;
+        String degree = newStudent.getMajor();
+        
+        if (degree.equals("Computer Science")) {
+            iterator = csDBCollection.createIterator();
+            
+            while (iterator.hasNext()) {
+                Course compCourse = iterator.next();
+                
+                if (compCourse.getCode() == courseCode) {
+                    newStudent.addCourse(compCourse, grade);
+                }
+            }
+        }
     }
     
     public String getCourses() {
-        CIterator iterator  = dbCollection.createIterator();
+        CIterator iterator  = csDBCollection.createIterator();
         String s = "";
         while (iterator.hasNext()) {
             Course c = iterator.next();
@@ -33,22 +47,52 @@ public class AdvisingSystem {
         return s;
     }
     
-    public void addToCourseCollection(Course c) {
-        dbCollection.addCourse(c);
+    public void addToCSCourseCollection(Course c) {
+        csDBCollection.addCourse(c);
+    }
+    
+    public void addToITCourseCollection(Course c) {
+        itDBCollection.addCourse(c);
     }
     
     public String[] filterCourseList(int year, int sem) {
-        CIterator iterator  = dbCollection.createIterator();
+        CIterator iterator;
+        CourseCollection filteredCollection = new CourseCollection();
         ArrayList<String> courseList = new ArrayList<String>();
         
+        if (newStudent.getMajor().equals("Computer Science")) {
+            iterator = csDBCollection.createIterator();
+            
+            while (iterator.hasNext()) {
+                Course prospectCourse = iterator.next();
+                
+                if (prospectCourse.getYear() == year && prospectCourse.getSem() == sem) {
+                    filteredCollection.addCourse(prospectCourse);
+                }
+            }
+        }    
+        else if (newStudent.getMajor().equals("Information Technology")) {
+            iterator = itDBCollection.createIterator();
+            
+            while (iterator.hasNext()) {
+                Course prospectCourse = iterator.next();
+                
+                if (prospectCourse.getYear() == year && prospectCourse.getSem() == sem) {
+                    filteredCollection.addCourse(prospectCourse);
+                }
+            }
+        }
+        else 
+            return new String[]{"Error"};
+        
+        iterator = filteredCollection.createIterator();
         
         while (iterator.hasNext()) {
             Course c = iterator.next();
-            
-            if (c.getYear() == year && c.getSem() == sem) {
-                courseList.add(c.getCode());
-            }
+            courseList.add(c.getCode()); 
         }
+        
+        courseList.add("NON-DCIT COURSE");
         
         String[] courseListArray = new String[courseList.size()];
         
@@ -69,7 +113,7 @@ public class AdvisingSystem {
         check to see if completed courses contains said pre-req
     */
     public CourseCollection getSuggestedCourses() {
-        CIterator iterator  = dbCollection.createIterator();
+        CIterator iterator  = csDBCollection.createIterator();
         Double gpa = newStudent.getGPA();
         HashMap<Course, Integer> studentCourseList = newStudent.getCourseList();
         

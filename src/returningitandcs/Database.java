@@ -1,7 +1,8 @@
 package returningitandcs;
 import java.sql.*;
 import returningitandcs.Command.Command;
-import returningitandcs.Command.CreateDBCourseCommand;
+import returningitandcs.Command.CreateCSDBCourseCommand;
+import returningitandcs.Command.CreateITDBCourseCommand;
 import returningitandcs.Command.RemoteControl;
 
 /*
@@ -17,7 +18,6 @@ import returningitandcs.Command.RemoteControl;
 public class Database {
     public AdvisingSystem advisingSystem;
     public RemoteControl systemControl;
-    Command createDBCourse;
     
     public Database(AdvisingSystem advisingSystem, RemoteControl systemControl) {
         this.advisingSystem = advisingSystem;
@@ -59,8 +59,8 @@ public class Database {
 
                Course newCSCourse = new Course(code, title, type, credit, year, semester, prerequisite);
                System.out.println(newCSCourse.toString());
-               Command createDBCourse = new CreateDBCourseCommand(advisingSystem, newCSCourse);
-               systemControl.setCommand(createDBCourse);
+               Command createCSDBCourse = new CreateCSDBCourseCommand(advisingSystem, newCSCourse);
+               systemControl.setCommand(createCSDBCourse);
                systemControl.pressButton();
                 
             }
@@ -84,8 +84,8 @@ public class Database {
                 
                Course newITCourse = new Course(code, title, type, credit, year, semester, prerequisite);
                System.out.println(newITCourse.toString());
-               Command createDBCourse = new CreateDBCourseCommand(advisingSystem, newITCourse);
-               systemControl.setCommand(createDBCourse);
+               Command createITDBCourse = new CreateITDBCourseCommand(advisingSystem, newITCourse);
+               systemControl.setCommand(createITDBCourse);
                systemControl.pressButton();
             }
             myRs.close();

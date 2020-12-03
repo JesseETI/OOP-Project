@@ -7,17 +7,17 @@ import returningitandcs.Course;
 public class AddCompletedStudentCourses implements Command{
     
     AdvisingSystem advisingSystem;
-    Course newCourse;
+    String courseCode;
     int grade;
     
-    public AddCompletedStudentCourses(AdvisingSystem advisingSystem, Course newCourse, int grade) {
+    public AddCompletedStudentCourses(AdvisingSystem advisingSystem, String courseCode, int grade) {
         this.advisingSystem = advisingSystem;
-        this.newCourse = newCourse;
+        this.courseCode = courseCode;
         this.grade = grade;
     }
     
     public void execute() {
-        advisingSystem.addCompletedStudentCourses(newCourse, grade);
+        advisingSystem.addCompletedStudentCourses(courseCode, grade);
     }
     
 }
