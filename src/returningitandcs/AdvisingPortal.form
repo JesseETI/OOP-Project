@@ -883,7 +883,6 @@
                                                   <Component id="y2s2g2" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="y2s2g3" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
@@ -895,16 +894,15 @@
                                                   <Component id="y2s2c3" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="y2s2c4" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="y2s2g4" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="y2s2c5" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="y2s2g5" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1162,45 +1160,45 @@
                                               <Component id="y3s1c2" alignment="0" min="-2" pref="229" max="-2" attributes="0"/>
                                               <Component id="y3s1c3" alignment="0" min="-2" pref="229" max="-2" attributes="0"/>
                                               <Component id="y3s1c4" alignment="0" min="-2" pref="229" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                                  <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
-                                              </Group>
                                               <Component id="y3s1c5" alignment="0" min="-2" pref="229" max="-2" attributes="0"/>
                                               <Component id="y3s2c1" alignment="0" min="-2" pref="229" max="-2" attributes="0"/>
                                               <Component id="y3s2c2" alignment="0" min="-2" pref="229" max="-2" attributes="0"/>
                                               <Component id="y3s2c3" alignment="0" min="-2" pref="229" max="-2" attributes="0"/>
                                               <Component id="y3s2c4" alignment="0" min="-2" pref="229" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                                  <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
-                                              </Group>
                                               <Component id="y3s2c5" alignment="0" min="-2" pref="229" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                           <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="y3s1g5" max="32767" attributes="0"/>
-                                              <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
                                               <Component id="y3s1g4" alignment="0" max="32767" attributes="0"/>
                                               <Component id="y3s1g3" alignment="0" max="32767" attributes="0"/>
                                               <Component id="y3s1g2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="y3s1g1" min="-2" pref="77" max="-2" attributes="0"/>
                                               <Component id="y3s2g5" alignment="0" max="32767" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
                                               <Component id="y3s2g4" alignment="0" max="32767" attributes="0"/>
                                               <Component id="y3s2g3" alignment="0" max="32767" attributes="0"/>
                                               <Component id="y3s2g2" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="y3s2g1" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="y3s1g1" min="-2" pref="77" max="-2" attributes="0"/>
+                                                      <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="y3s2g1" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                       <Component id="jLabel39" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1424,7 +1422,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel6">
+            <Container class="javax.swing.JPanel" name="SuggestedCoursesPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
                   <CardConstraints cardName="card6"/>

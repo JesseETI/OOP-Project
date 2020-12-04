@@ -26,15 +26,19 @@ public class AdvisingSystem {
         
         if (degree.equals("Computer Science")) {
             iterator = csDBCollection.createIterator();
-            
-            while (iterator.hasNext()) {
-                Course compCourse = iterator.next();
-                
-                if (compCourse.getCode() == courseCode) {
-                    newStudent.addCourse(compCourse, grade);
-                }
+        }
+        else {
+            iterator = itDBCollection.createIterator();
+        }     
+                    
+        while (iterator.hasNext()) {
+            Course dbCourse = iterator.next();
+
+            if (dbCourse.getCode().equals(courseCode)) {
+                newStudent.addCourse(dbCourse, grade);
             }
         }
+        
     }
     
     public String getCourses() {
@@ -112,15 +116,27 @@ public class AdvisingSystem {
         look at pre-req for said course in db
         check to see if completed courses contains said pre-req
     */
-    public CourseCollection getSuggestedCourses() {
-        CIterator iterator  = csDBCollection.createIterator();
+    public String[] suggestCourses() {
+        CIterator iterator;
         Double gpa = newStudent.getGPA();
         HashMap<Course, Integer> studentCourseList = newStudent.getCourseList();
+        ArrayList<String> generatedCourseList = new ArrayList<String>();
         
         if (gpa < 2.00) {
             return null;
         }
-
+        
+        if (newStudent.getMajor().equals("Computer Science")) {
+            iterator = csDBCollection.createIterator();
+        }
+        else if (newStudent.getMajor().equals("Information Technology")){
+            iterator = itDBCollection.createIterator();
+        }
+        else {
+            return new String[]{"Error"};
+        }
+                
+        
         while (iterator.hasNext()) {
             Course currDBCourse = iterator.next();
             
@@ -137,14 +153,29 @@ public class AdvisingSystem {
                         
                         if (currStudentCourse.getPreRequisites().contains(currDBCourse.getCode())) {
                             suggestedCollection.addCourse(currDBCourse);
-                        }
-                        
-                    } 
-                    
+                        } 
+                    }     
                 }
             }
         }
-        return suggestedCollection;
+        
+        iterator = suggestedCollection.createIterator();
+        
+        while (iterator.hasNext()) {
+            Course c = iterator.next();
+            generatedCourseList.add(c.getCode()); 
+        }
+        
+        String[] courseListArray = new String[generatedCourseList.size()];
+        
+        int count = 0;
+        for (String course: courseListArray) {
+            courseListArray[count] = course;
+            count++;
+        }
+        
+        return courseListArray;
+        
     }
         
 }

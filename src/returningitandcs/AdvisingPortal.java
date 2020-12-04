@@ -8,9 +8,11 @@ package returningitandcs;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
+import returningitandcs.Command.AddCompletedStudentCourses;
 import returningitandcs.Command.Command;
 import returningitandcs.Command.CreateStudentCommand;
 import returningitandcs.Command.RemoteControl;
+import returningitandcs.Command.SuggestRecommendedCoursesCommand;
 
 /**
  *
@@ -179,7 +181,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
         y3s2c5 = new javax.swing.JComboBox<>();
         jLabel45 = new javax.swing.JLabel();
         genCourseBtn = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
+        SuggestedCoursesPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         courseList = new javax.swing.JList<>();
@@ -752,8 +754,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(y2s2g2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(y2s2g3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(41, 41, 41))
+                                        .addComponent(y2s2g3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(Year2PanelLayout.createSequentialGroup()
                                         .addComponent(jLabel33)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -763,12 +764,11 @@ public class AdvisingPortal extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(y2s2c3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(y2s2c4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                                        .addComponent(y2s2c4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Year2PanelLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(y2s2g4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addComponent(y2s2g4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(Year2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(y2s2c5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(y2s2g5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -869,36 +869,35 @@ public class AdvisingPortal extends javax.swing.JFrame {
                                     .addComponent(y3s1c2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(y3s1c3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(y3s1c4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(Year3PanelLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel42))
                                     .addComponent(y3s1c5, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(y3s2c1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(y3s2c2, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(y3s2c3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(y3s2c4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(y3s2c5, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(Year3PanelLayout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addComponent(jLabel44))
-                                    .addComponent(y3s2c5, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(Year3PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel42)
+                                            .addComponent(jLabel44))))
                                 .addGap(145, 145, 145)
-                                .addGroup(Year3PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(Year3PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(y3s1g5)
-                                    .addComponent(jLabel41)
                                     .addComponent(y3s1g4)
                                     .addComponent(y3s1g3)
                                     .addComponent(y3s1g2)
-                                    .addComponent(y3s1g1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(y3s2g5)
-                                    .addGroup(Year3PanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel43)
-                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(y3s2g4)
                                     .addComponent(y3s2g3)
                                     .addComponent(y3s2g2)
-                                    .addComponent(y3s2g1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel39))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(Year3PanelLayout.createSequentialGroup()
+                                        .addGroup(Year3PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel41)
+                                            .addComponent(y3s1g1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel43)
+                                            .addComponent(y3s2g1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jLabel39)))))
             .addGroup(Year3PanelLayout.createSequentialGroup()
                 .addGroup(Year3PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Year3PanelLayout.createSequentialGroup()
@@ -989,20 +988,20 @@ public class AdvisingPortal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(courseList);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout SuggestedCoursesPanelLayout = new javax.swing.GroupLayout(SuggestedCoursesPanel);
+        SuggestedCoursesPanel.setLayout(SuggestedCoursesPanelLayout);
+        SuggestedCoursesPanelLayout.setHorizontalGroup(
+            SuggestedCoursesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SuggestedCoursesPanelLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SuggestedCoursesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        SuggestedCoursesPanelLayout.setVerticalGroup(
+            SuggestedCoursesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SuggestedCoursesPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1010,7 +1009,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
                 .addContainerGap(99, Short.MAX_VALUE))
         );
 
-        innerPanel.add(jPanel6, "card6");
+        innerPanel.add(SuggestedCoursesPanel, "card6");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1031,7 +1030,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(portalTitle)
                 .addGap(25, 25, 25)
-                .addComponent(innerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
+                .addComponent(innerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 792, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1111,7 +1110,86 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
     private void Y1BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Y1BtnActionPerformed
         // TODO add your handling code here:
-        Course c;
+        if (y1s1c1.getSelectedItem() != null && !y1s1g1.getText().isEmpty()) {
+            String courseCode = y1s1c1.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s1g1.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s1c2.getSelectedItem() != null && !y1s1g2.getText().isEmpty()) {
+            String courseCode = y1s1c2.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s1g2.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s1c3.getSelectedItem() != null && !y1s1g3.getText().isEmpty()) {
+            String courseCode = y1s1c3.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s1g3.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s1c4.getSelectedItem() != null && !y1s1g4.getText().isEmpty()) {
+            String courseCode = y1s1c4.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s1g4.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s1c5.getSelectedItem() != null && !y1s1g5.getText().isEmpty()) {
+            String courseCode = y1s1c5.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s1g5.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        
+        //SEMESTER 2
+        if (y1s2c1.getSelectedItem() != null && !y1s2g1.getText().isEmpty()) {
+            String courseCode = y1s2c1.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s2g1.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s2c2.getSelectedItem() != null && !y1s2g2.getText().isEmpty()) {
+            String courseCode = y1s2c2.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s2g2.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s2c3.getSelectedItem() != null && !y1s2g3.getText().isEmpty()) {
+            String courseCode = y1s2c3.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s2g3.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s2c4.getSelectedItem() != null && !y1s2g4.getText().isEmpty()) {
+            String courseCode = y1s2c4.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s2g4.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s2c5.getSelectedItem() != null && !y1s2g5.getText().isEmpty()) {
+            String courseCode = y1s2c5.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s2g5.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        
+        //SUMMER SEMESTER
+        if (y1s3c1.getSelectedItem() != null && !y1s3g1.getText().isEmpty()) {
+            String courseCode = y1s3c1.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s3g1.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s3c2.getSelectedItem() != null && !y1s3g2.getText().isEmpty()) {
+            String courseCode = y1s2c2.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s2g2.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s3c3.getSelectedItem() != null && !y1s3g3.getText().isEmpty()) {
+            String courseCode = y1s3c3.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s3g3.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s3c4.getSelectedItem() != null && !y1s3g4.getText().isEmpty()) {
+            String courseCode = y1s3c4.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s3g4.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y1s3c5.getSelectedItem() != null && !y1s3g5.getText().isEmpty()) {
+            String courseCode = y1s3c5.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s3g5.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        
         switchPanels(Year2Panel);
     }//GEN-LAST:event_Y1BtnActionPerformed
 
@@ -1153,6 +1231,86 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
     private void Y2BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Y2BtnActionPerformed
         // TODO add your handling code here:
+        if (y2s1c1.getSelectedItem() != null && !y2s1g1.getText().isEmpty()) {
+            String courseCode = y2s1c1.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s1g1.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s1c2.getSelectedItem() != null && !y2s1g2.getText().isEmpty()) {
+            String courseCode = y2s1c2.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s1g2.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s1c3.getSelectedItem() != null && !y2s1g3.getText().isEmpty()) {
+            String courseCode = y1s1c3.getSelectedItem().toString();
+            int grade = Integer.parseInt(y1s1g3.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s1c4.getSelectedItem() != null && !y2s1g4.getText().isEmpty()) {
+            String courseCode = y2s1c4.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s1g4.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s1c5.getSelectedItem() != null && !y2s1g5.getText().isEmpty()) {
+            String courseCode = y2s1c5.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s1g5.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        
+        //SEMESTER 2
+        if (y2s2c1.getSelectedItem() != null && !y2s2g1.getText().isEmpty()) {
+            String courseCode = y2s2c1.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s2g1.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s2c2.getSelectedItem() != null && !y2s2g2.getText().isEmpty()) {
+            String courseCode = y2s2c2.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s2g2.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s2c3.getSelectedItem() != null && !y2s2g3.getText().isEmpty()) {
+            String courseCode = y2s2c3.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s2g3.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s2c4.getSelectedItem() != null && !y2s2g4.getText().isEmpty()) {
+            String courseCode = y2s2c4.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s2g4.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s2c5.getSelectedItem() != null && !y2s2g5.getText().isEmpty()) {
+            String courseCode = y2s2c5.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s2g5.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        
+        //SUMMER SEMESTER
+        if (y2s3c1.getSelectedItem() != null && !y2s3g1.getText().isEmpty()) {
+            String courseCode = y2s3c1.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s3g1.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s3c2.getSelectedItem() != null && !y2s3g2.getText().isEmpty()) {
+            String courseCode = y2s2c2.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s2g2.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s3c3.getSelectedItem() != null && !y2s3g3.getText().isEmpty()) {
+            String courseCode = y2s3c3.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s3g3.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s3c4.getSelectedItem() != null && !y2s3g4.getText().isEmpty()) {
+            String courseCode = y2s3c4.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s3g4.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y2s3c5.getSelectedItem() != null && !y2s3g5.getText().isEmpty()) {
+            String courseCode = y2s3c5.getSelectedItem().toString();
+            int grade = Integer.parseInt(y2s3g5.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        
         switchPanels(Year3Panel);
     }//GEN-LAST:event_Y2BtnActionPerformed
 
@@ -1170,6 +1328,64 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
     private void genCourseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genCourseBtnActionPerformed
         // TODO add your handling code here:
+        if (y3s1c1.getSelectedItem() != null && !y3s1g1.getText().isEmpty()) {
+            String courseCode = y3s1c1.getSelectedItem().toString();
+            int grade = Integer.parseInt(y3s1g1.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y3s1c2.getSelectedItem() != null && !y3s1g2.getText().isEmpty()) {
+            String courseCode = y3s1c2.getSelectedItem().toString();
+            int grade = Integer.parseInt(y3s1g2.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y3s1c3.getSelectedItem() != null && !y3s1g3.getText().isEmpty()) {
+            String courseCode = y3s1c3.getSelectedItem().toString();
+            int grade = Integer.parseInt(y3s1g3.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y3s1c4.getSelectedItem() != null && !y3s1g4.getText().isEmpty()) {
+            String courseCode = y3s1c4.getSelectedItem().toString();
+            int grade = Integer.parseInt(y3s1g4.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y3s1c5.getSelectedItem() != null && !y3s1g5.getText().isEmpty()) {
+            String courseCode = y3s1c5.getSelectedItem().toString();
+            int grade = Integer.parseInt(y3s1g5.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        
+        //SEMESTER 2
+        if (y3s2c1.getSelectedItem() != null && !y3s2g1.getText().isEmpty()) {
+            String courseCode = y3s2c1.getSelectedItem().toString();
+            int grade = Integer.parseInt(y3s2g1.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y3s2c2.getSelectedItem() != null && !y3s2g2.getText().isEmpty()) {
+            String courseCode = y3s2c2.getSelectedItem().toString();
+            int grade = Integer.parseInt(y3s2g2.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y3s2c3.getSelectedItem() != null && !y3s2g3.getText().isEmpty()) {
+            String courseCode = y3s2c3.getSelectedItem().toString();
+            int grade = Integer.parseInt(y3s2g3.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y3s2c4.getSelectedItem() != null && !y3s2g4.getText().isEmpty()) {
+            String courseCode = y3s2c4.getSelectedItem().toString();
+            int grade = Integer.parseInt(y3s2g4.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        if (y3s2c5.getSelectedItem() != null && !y3s2g5.getText().isEmpty()) {
+            String courseCode = y3s2c5.getSelectedItem().toString();
+            int grade = Integer.parseInt(y3s2g5.getText());
+            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+        }
+        
+        Command suggestCourses = new SuggestRecommendedCoursesCommand(advisingSystem);
+        systemControl.setCommand(suggestCourses);
+        systemControl.pressButton();
+        
+        switchPanels(SuggestedCoursesPanel);
     }//GEN-LAST:event_genCourseBtnActionPerformed
 
     /**
@@ -1230,6 +1446,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
     private javax.swing.JRadioButton Sem1Button;
     private javax.swing.JLabel Sem1Title;
     private javax.swing.JRadioButton Sem2Button;
+    private javax.swing.JPanel SuggestedCoursesPanel;
     private javax.swing.JButton Y1Btn;
     private javax.swing.JLabel Y1Title;
     private javax.swing.JButton Y2Btn;
@@ -1272,7 +1489,6 @@ public class AdvisingPortal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel majorLabel;
     private javax.swing.JButton nextBtn;
@@ -1473,6 +1689,9 @@ public class AdvisingPortal extends javax.swing.JFrame {
         y3s2c5.setModel(new javax.swing.DefaultComboBoxModel(y3s2options));
         y3s2c5.setSelectedItem(null);
     }
-
+    
+    private void setSuggestedCourses(){
+    
+    }
 
 }
