@@ -980,7 +980,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
         SuggestedCoursesPanel.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel5.setText("Enter the courses you are interested In");
+        jLabel5.setText("Your generated courses");
 
         jScrollPane1.setViewportView(courseList);
 

@@ -1458,7 +1458,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Enter the courses you are interested In"/>
+                    <Property name="text" type="java.lang.String" value="Your generated courses"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane1">
