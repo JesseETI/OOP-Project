@@ -14,28 +14,32 @@ public class AdvisingSystem {
     public AdvisingSystem() {
         csDBCollection = new CourseCollection();
         itDBCollection = new CourseCollection();
+        suggestedCollection =  new CourseCollection();
     }
     
     public void createStudent(String major, int year, int sem, double gpa) {
         newStudent = new Student(major, year, sem, gpa);
     }
     
-    public void addCompletedStudentCourses(String courseCode, int grade) {
+    public void addCompletedStudentCourses(String courseCode, Integer currCourseGrade) {
         CIterator iterator;
         String degree = newStudent.getMajor();
-        
+           
+        System.out.println(courseCode);
+            
         if (degree.equals("Computer Science")) {
             iterator = csDBCollection.createIterator();
         }
         else {
             iterator = itDBCollection.createIterator();
         }     
-                    
-        while (iterator.hasNext()) {
+
+        while (iterator.hasNext()) {    
             Course dbCourse = iterator.next();
 
             if (dbCourse.getCode().equals(courseCode)) {
-                newStudent.addCourse(dbCourse, grade);
+                newStudent.addCourse(dbCourse, currCourseGrade);
+                System.out.println("Course added");
             }
         }
         
@@ -119,11 +123,14 @@ public class AdvisingSystem {
     public String[] suggestCourses() {
         CIterator iterator;
         Double gpa = newStudent.getGPA();
-        HashMap<Course, Integer> studentCourseList = newStudent.getCourseList();
+        int year = newStudent.getYear();
+        int sem = newStudent.getSem();
+        String[] courseListArray;
+        
         ArrayList<String> generatedCourseList = new ArrayList<String>();
         
         if (gpa < 2.00) {
-            return null;
+            return new String[]{"GPA Too Low. Required to Withdraw"};
         }
         
         if (newStudent.getMajor().equals("Computer Science")) {
@@ -135,44 +142,8 @@ public class AdvisingSystem {
         else {
             return new String[]{"Error"};
         }
-                
         
-        while (iterator.hasNext()) {
-            Course currDBCourse = iterator.next();
-            
-            for (int i = 0; i < studentCourseList.size(); i++) {
-                HashMap.Entry mapElement = (HashMap.Entry) studentCourseList;
-                Course currStudentCourse = (Course) mapElement.getValue();
-                String currCourseCode = currStudentCourse.getCode();
-                
-                if (!currDBCourse.getCode().equals(currCourseCode)) {
-                    
-                    for (int j = 0; j < studentCourseList.size(); j++) {
-                        mapElement = (HashMap.Entry) studentCourseList;
-                        currStudentCourse = (Course) mapElement.getValue();
-                        
-                        if (currStudentCourse.getPreRequisites().contains(currDBCourse.getCode())) {
-                            suggestedCollection.addCourse(currDBCourse);
-                        } 
-                    }     
-                }
-            }
-        }
-        
-        iterator = suggestedCollection.createIterator();
-        
-        while (iterator.hasNext()) {
-            Course c = iterator.next();
-            generatedCourseList.add(c.getCode()); 
-        }
-        
-        String[] courseListArray = new String[generatedCourseList.size()];
-        
-        int count = 0;
-        for (String course: courseListArray) {
-            courseListArray[count] = course;
-            count++;
-        }
+        courseListArray = filterCourseList(year, sem);
         
         return courseListArray;
         

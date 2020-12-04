@@ -5,6 +5,7 @@
  */
 package returningitandcs;
 
+import java.util.HashMap;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
@@ -192,7 +193,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
         innerPanel.setLayout(new java.awt.CardLayout());
 
-        FirstPanel.setBackground(new java.awt.Color(204, 255, 255));
+        FirstPanel.setBackground(new java.awt.Color(204, 204, 255));
 
         welcomeLabel.setText("Welcome");
 
@@ -315,7 +316,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
         innerPanel.add(FirstPanel, "card2");
 
-        Year1Panel.setBackground(new java.awt.Color(204, 255, 204));
+        Year1Panel.setBackground(new java.awt.Color(204, 204, 255));
 
         Y1Title.setText("YEAR 1");
 
@@ -565,7 +566,7 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
         innerPanel.add(Year1Panel, "card3");
 
-        Year2Panel.setBackground(new java.awt.Color(255, 153, 153));
+        Year2Panel.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel27.setText("YEAR 2");
 
@@ -881,23 +882,21 @@ public class AdvisingPortal extends javax.swing.JFrame {
                                             .addComponent(jLabel42)
                                             .addComponent(jLabel44))))
                                 .addGap(145, 145, 145)
-                                .addGroup(Year3PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(y3s1g5)
-                                    .addComponent(y3s1g4)
-                                    .addComponent(y3s1g3)
-                                    .addComponent(y3s1g2)
-                                    .addComponent(y3s2g5)
-                                    .addComponent(y3s2g4)
-                                    .addComponent(y3s2g3)
-                                    .addComponent(y3s2g2)
-                                    .addGroup(Year3PanelLayout.createSequentialGroup()
-                                        .addGroup(Year3PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel41)
-                                            .addComponent(y3s1g1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel43)
-                                            .addComponent(y3s2g1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addComponent(jLabel39)))))
+                                .addGroup(Year3PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(y3s2g4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(y3s2g3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(y3s2g2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(y3s1g5, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(y3s1g4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(y3s1g3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(y3s1g2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel41, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(y3s1g1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                                    .addComponent(jLabel43, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(y3s2g1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                                    .addComponent(y3s2g5, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addComponent(jLabel39))))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(Year3PanelLayout.createSequentialGroup()
                 .addGroup(Year3PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Year3PanelLayout.createSequentialGroup()
@@ -979,13 +978,10 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
         innerPanel.add(Year3Panel, "card5");
 
+        SuggestedCoursesPanel.setBackground(new java.awt.Color(204, 204, 255));
+
         jLabel5.setText("Enter the courses you are interested In");
 
-        courseList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(courseList);
 
         javax.swing.GroupLayout SuggestedCoursesPanelLayout = new javax.swing.GroupLayout(SuggestedCoursesPanel);
@@ -1091,103 +1087,140 @@ public class AdvisingPortal extends javax.swing.JFrame {
         }
         
         String gpaText = GPATextField.getText();
-        
-            Double gpa = Double.parseDouble(gpaText);
+        Double gpa = 0.0;
+        try {
+            gpa = Double.parseDouble(gpaText);  
             
-            if (!degreeOpt.equals("") && yearOpt != 0 && semOpt != 0) {
-                Command createStudent = new CreateStudentCommand(advisingSystem, degreeOpt,yearOpt,semOpt,gpa);
-                systemControl.setCommand(createStudent);
-                systemControl.pressButton();
-                
-                setComboBoxOptions();
-                switchPanels(Year1Panel);
+            if (!degreeOpt.equals("") && yearOpt != 0 && semOpt != 0 && (gpa >= 0.0 && gpa <= 4.30)) {
+            Command createStudent = new CreateStudentCommand(advisingSystem, degreeOpt,yearOpt,semOpt,gpa);
+            systemControl.setCommand(createStudent);
+            systemControl.pressButton();
+
+            setComboBoxOptions();
+            switchPanels(Year1Panel);
             }
             else {
-                welcomeLabel.setText("Please fill out all fields.");
+                welcomeLabel.setText("Please fill out all fields with valid info.");
             }
+        }
+        catch(NumberFormatException e){
+          welcomeLabel.setText("Please enter valid GPA value!");
+        }
             
     }//GEN-LAST:event_nextBtnActionPerformed
 
+    //CHANGE AddCompletedStudentCourses to take in hashmap instead
     private void Y1BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Y1BtnActionPerformed
         // TODO add your handling code here:
+        
         if (y1s1c1.getSelectedItem() != null && !y1s1g1.getText().isEmpty()) {
             String courseCode = y1s1c1.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s1g1.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s1c2.getSelectedItem() != null && !y1s1g2.getText().isEmpty()) {
             String courseCode = y1s1c2.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s1g2.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s1c3.getSelectedItem() != null && !y1s1g3.getText().isEmpty()) {
             String courseCode = y1s1c3.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s1g3.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s1c4.getSelectedItem() != null && !y1s1g4.getText().isEmpty()) {
             String courseCode = y1s1c4.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s1g4.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s1c5.getSelectedItem() != null && !y1s1g5.getText().isEmpty()) {
             String courseCode = y1s1c5.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s1g5.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         
         //SEMESTER 2
         if (y1s2c1.getSelectedItem() != null && !y1s2g1.getText().isEmpty()) {
             String courseCode = y1s2c1.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s2g1.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s2c2.getSelectedItem() != null && !y1s2g2.getText().isEmpty()) {
             String courseCode = y1s2c2.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s2g2.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s2c3.getSelectedItem() != null && !y1s2g3.getText().isEmpty()) {
             String courseCode = y1s2c3.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s2g3.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s2c4.getSelectedItem() != null && !y1s2g4.getText().isEmpty()) {
             String courseCode = y1s2c4.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s2g4.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s2c5.getSelectedItem() != null && !y1s2g5.getText().isEmpty()) {
             String courseCode = y1s2c5.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s2g5.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         
         //SUMMER SEMESTER
         if (y1s3c1.getSelectedItem() != null && !y1s3g1.getText().isEmpty()) {
             String courseCode = y1s3c1.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s3g1.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton(); 
         }
         if (y1s3c2.getSelectedItem() != null && !y1s3g2.getText().isEmpty()) {
             String courseCode = y1s2c2.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s2g2.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s3c3.getSelectedItem() != null && !y1s3g3.getText().isEmpty()) {
             String courseCode = y1s3c3.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s3g3.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s3c4.getSelectedItem() != null && !y1s3g4.getText().isEmpty()) {
             String courseCode = y1s3c4.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s3g4.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y1s3c5.getSelectedItem() != null && !y1s3g5.getText().isEmpty()) {
             String courseCode = y1s3c5.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s3g5.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton(); 
         }
         
         switchPanels(Year2Panel);
@@ -1231,84 +1264,115 @@ public class AdvisingPortal extends javax.swing.JFrame {
 
     private void Y2BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Y2BtnActionPerformed
         // TODO add your handling code here:
+        
         if (y2s1c1.getSelectedItem() != null && !y2s1g1.getText().isEmpty()) {
             String courseCode = y2s1c1.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s1g1.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s1c2.getSelectedItem() != null && !y2s1g2.getText().isEmpty()) {
             String courseCode = y2s1c2.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s1g2.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s1c3.getSelectedItem() != null && !y2s1g3.getText().isEmpty()) {
             String courseCode = y1s1c3.getSelectedItem().toString();
             int grade = Integer.parseInt(y1s1g3.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s1c4.getSelectedItem() != null && !y2s1g4.getText().isEmpty()) {
             String courseCode = y2s1c4.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s1g4.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s1c5.getSelectedItem() != null && !y2s1g5.getText().isEmpty()) {
             String courseCode = y2s1c5.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s1g5.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         
         //SEMESTER 2
         if (y2s2c1.getSelectedItem() != null && !y2s2g1.getText().isEmpty()) {
             String courseCode = y2s2c1.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s2g1.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s2c2.getSelectedItem() != null && !y2s2g2.getText().isEmpty()) {
             String courseCode = y2s2c2.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s2g2.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s2c3.getSelectedItem() != null && !y2s2g3.getText().isEmpty()) {
             String courseCode = y2s2c3.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s2g3.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s2c4.getSelectedItem() != null && !y2s2g4.getText().isEmpty()) {
             String courseCode = y2s2c4.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s2g4.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s2c5.getSelectedItem() != null && !y2s2g5.getText().isEmpty()) {
             String courseCode = y2s2c5.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s2g5.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         
         //SUMMER SEMESTER
         if (y2s3c1.getSelectedItem() != null && !y2s3g1.getText().isEmpty()) {
             String courseCode = y2s3c1.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s3g1.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s3c2.getSelectedItem() != null && !y2s3g2.getText().isEmpty()) {
             String courseCode = y2s2c2.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s2g2.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s3c3.getSelectedItem() != null && !y2s3g3.getText().isEmpty()) {
             String courseCode = y2s3c3.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s3g3.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s3c4.getSelectedItem() != null && !y2s3g4.getText().isEmpty()) {
             String courseCode = y2s3c4.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s3g4.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y2s3c5.getSelectedItem() != null && !y2s3g5.getText().isEmpty()) {
             String courseCode = y2s3c5.getSelectedItem().toString();
             int grade = Integer.parseInt(y2s3g5.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         
         switchPanels(Year3Panel);
@@ -1327,64 +1391,82 @@ public class AdvisingPortal extends javax.swing.JFrame {
     }//GEN-LAST:event_y3s2g2ActionPerformed
 
     private void genCourseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genCourseBtnActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
+        
         if (y3s1c1.getSelectedItem() != null && !y3s1g1.getText().isEmpty()) {
             String courseCode = y3s1c1.getSelectedItem().toString();
             int grade = Integer.parseInt(y3s1g1.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y3s1c2.getSelectedItem() != null && !y3s1g2.getText().isEmpty()) {
             String courseCode = y3s1c2.getSelectedItem().toString();
             int grade = Integer.parseInt(y3s1g2.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton(); 
         }
         if (y3s1c3.getSelectedItem() != null && !y3s1g3.getText().isEmpty()) {
             String courseCode = y3s1c3.getSelectedItem().toString();
             int grade = Integer.parseInt(y3s1g3.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y3s1c4.getSelectedItem() != null && !y3s1g4.getText().isEmpty()) {
             String courseCode = y3s1c4.getSelectedItem().toString();
             int grade = Integer.parseInt(y3s1g4.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton(); 
         }
         if (y3s1c5.getSelectedItem() != null && !y3s1g5.getText().isEmpty()) {
             String courseCode = y3s1c5.getSelectedItem().toString();
             int grade = Integer.parseInt(y3s1g5.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         
         //SEMESTER 2
         if (y3s2c1.getSelectedItem() != null && !y3s2g1.getText().isEmpty()) {
             String courseCode = y3s2c1.getSelectedItem().toString();
             int grade = Integer.parseInt(y3s2g1.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y3s2c2.getSelectedItem() != null && !y3s2g2.getText().isEmpty()) {
             String courseCode = y3s2c2.getSelectedItem().toString();
             int grade = Integer.parseInt(y3s2g2.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();  
         }
         if (y3s2c3.getSelectedItem() != null && !y3s2g3.getText().isEmpty()) {
             String courseCode = y3s2c3.getSelectedItem().toString();
             int grade = Integer.parseInt(y3s2g3.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton(); 
         }
         if (y3s2c4.getSelectedItem() != null && !y3s2g4.getText().isEmpty()) {
             String courseCode = y3s2c4.getSelectedItem().toString();
             int grade = Integer.parseInt(y3s2g4.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         if (y3s2c5.getSelectedItem() != null && !y3s2g5.getText().isEmpty()) {
             String courseCode = y3s2c5.getSelectedItem().toString();
             int grade = Integer.parseInt(y3s2g5.getText());
-            Command addCompletedCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade); 
+            Command AddCompletedStudentCourses = new AddCompletedStudentCourses(advisingSystem, courseCode, grade);
+            systemControl.setCommand(AddCompletedStudentCourses);
+            systemControl.pressButton();
         }
         
-        Command suggestCourses = new SuggestRecommendedCoursesCommand(advisingSystem);
-        systemControl.setCommand(suggestCourses);
-        systemControl.pressButton();
-        
+        setSuggestedCourses();
         switchPanels(SuggestedCoursesPanel);
     }//GEN-LAST:event_genCourseBtnActionPerformed
 
@@ -1691,7 +1773,12 @@ public class AdvisingPortal extends javax.swing.JFrame {
     }
     
     private void setSuggestedCourses(){
-    
+        
+        courseList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] suggestedCourseOptions = advisingSystem.suggestCourses();
+            public int getSize() { return suggestedCourseOptions.length; }
+            public String getElementAt(int i) { return suggestedCourseOptions[i]; }
+        });
     }
 
 }
